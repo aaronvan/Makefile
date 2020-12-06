@@ -25,14 +25,14 @@ BIN     = $(addprefix $(BINDIR)/, $(_BIN))
 .PHONY: all
 all: $(BINDIR) $(OBJDIR) $(BIN)
 
-#linking
+# linking
 $(BIN): $(OBJS) $(BINDIR)
 	$(CC) -o $@ $(CFLAGS) $(OBJS)
 
 $(BINDIR):
 	$(MKDIR) $(BINDIR)
 
-#compiling
+# compiling
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -44,13 +44,16 @@ clean:
 	@echo "Cleaning things up..."
 	$(RM) $(OBJDIR) $(BINDIR)
 	
+.PHONY: run
 run:
 	bin/a.out
 
-#shows tabs with ^I and line endings with $
+# debugging tools
+# shows tabs with ^I and line endings with $
+.PHONY: verify
 verify:
 	$(VERIFY)
 
-#macro outputs
+# macro outputs
 print-%:
 	@echo $* = $($*)
