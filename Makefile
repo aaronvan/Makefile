@@ -5,7 +5,7 @@ SHELL = /bin/zsh
 .SUFFIXES:
 .SUFFIXES: .c .h .o
 
-CC      = gcc
+CC      = clang
 BINDIR  = bin
 OBJDIR  = obj
 SRCDIR  = src
@@ -16,7 +16,7 @@ VERIFY	= cat -e -t -v Makefile
 SRC     = $(wildcard $(SRCDIR)/*.c)
 OBJS    = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 
-CFLAGS  = -Wall -g -Iinclude -std=c11 -pedantic
+CFLAGS  = -Wall -g -Iinclude -std=c17 -pedantic -Werror -Wextra
 
 #executable
 _BIN    = a.out
