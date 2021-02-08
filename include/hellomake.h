@@ -1,5 +1,5 @@
-#ifndef HELLO_H
-#define HELLO_H
+#ifndef __HELLO_H__
+#define __HELLO_H__
 
 void myPrintHelloMake(void);
 
