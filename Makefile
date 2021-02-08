@@ -22,7 +22,6 @@ CFLAGS  = -Wall -g -Iinclude -std=c17 -pedantic -Werror -Wextra
 _BIN    = a.out
 BIN     = $(addprefix $(BINDIR)/, $(_BIN))
 
-.PHONY: all
 all: $(BINDIR) $(OBJDIR) $(BIN)
 
 # linking
@@ -39,18 +38,15 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 $(OBJDIR):
 	$(MKDIR) $(OBJDIR)
 
-.PHONY: clean
 clean:
 	@echo "Cleaning things up..."
 	$(RM) $(OBJDIR) $(BINDIR)
 	
-.PHONY: run
 run:
 	bin/a.out
 
 # debugging tools
 # shows tabs with ^I and line endings with $
-.PHONY: verify
 verify:
 	$(VERIFY)
 
