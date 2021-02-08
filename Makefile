@@ -22,6 +22,7 @@ CFLAGS  = -Wall -g -Iinclude -std=c17 -pedantic -Werror -Wextra
 _BIN    = a.out
 BIN     = $(addprefix $(BINDIR)/, $(_BIN))
 
+#default goal
 all: $(BINDIR) $(OBJDIR) $(BIN)
 
 # linking
